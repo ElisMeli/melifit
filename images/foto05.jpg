@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="grad3" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2D3277;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a9eff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#grad3)"/>
+  <circle cx="200" cy="140" r="50" fill="none" stroke="#FFE600" stroke-width="6"/>
+  <circle cx="200" cy="140" r="40" fill="none" stroke="#FFE600" stroke-width="3"/>
+  <rect x="190" y="190" width="20" height="60" fill="#FFE600"/>
+  <rect x="140" y="240" width="120" height="15" rx="7" fill="#FFE600"/>
+  <circle cx="160" cy="290" r="35" fill="none" stroke="white" stroke-width="8"/>
+  <circle cx="240" cy="290" r="35" fill="none" stroke="white" stroke-width="8"/>
+  <text x="200" y="355" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFE600" text-anchor="middle">22.5 KM</text>
+  <text x="200" y="380" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">CICLISMO</text>
+</svg>

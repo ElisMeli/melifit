@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#FFE600"/>
+  <polygon points="200,60 220,120 282,130 236,172 248,234 200,204 152,234 164,172 118,130 180,120" fill="#2D3277"/>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="#2D3277" stroke-width="6"/>
+  <text x="200" y="325" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2D3277" text-anchor="middle">MEDALHA</text>
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#2D3277" text-anchor="middle">2025</text>
+  <circle cx="80" cy="80" r="15" fill="#2D3277" opacity="0.3"/>
+  <circle cx="320" cy="80" r="15" fill="#2D3277" opacity="0.3"/>
+  <circle cx="80" cy="320" r="15" fill="#2D3277" opacity="0.3"/>
+  <circle cx="320" cy="320" r="15" fill="#2D3277" opacity="0.3"/>
+</svg>

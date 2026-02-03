@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#1a1d4a"/>
+  <rect x="50" y="280" width="300" height="20" fill="#FFE600"/>
+  <rect x="100" y="150" width="40" height="130" rx="5" fill="#2D3277"/>
+  <rect x="160" y="150" width="40" height="130" rx="5" fill="#2D3277"/>
+  <rect x="220" y="150" width="40" height="130" rx="5" fill="#2D3277"/>
+  <rect x="280" y="150" width="40" height="130" rx="5" fill="#2D3277"/>
+  <text x="200" y="80" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFE600" text-anchor="middle">GO</text>
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">MELIFIT</text>
+  <circle cx="80" cy="340" r="15" fill="#FFE600"/>
+  <circle cx="320" cy="340" r="15" fill="#FFE600"/>
+</svg>

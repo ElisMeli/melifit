@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#FFE600"/>
+  <rect x="50" y="100" width="300" height="200" rx="20" fill="#2D3277"/>
+  <circle cx="120" cy="180" r="20" fill="#FFE600"/>
+  <circle cx="200" cy="180" r="20" fill="#FFE600"/>
+  <circle cx="280" cy="180" r="20" fill="#FFE600"/>
+  <path d="M 100 240 Q 200 200 300 240" stroke="#FFE600" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="200" y="340" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2D3277" text-anchor="middle">CONQUISTAS</text>
+  <polygon points="200,40 210,70 242,75 218,97 225,128 200,112 175,128 182,97 158,75 190,70" fill="#2D3277"/>
+</svg>

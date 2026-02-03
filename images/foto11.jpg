@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1d4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D3277;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#grad5)"/>
+  <circle cx="200" cy="160" r="70" fill="none" stroke="#FFE600" stroke-width="10"/>
+  <path d="M 200 90 A 70 70 0 1 1 199.99 90" fill="none" stroke="#FFE600" stroke-width="14" stroke-linecap="round"/>
+  <polygon points="200,80 220,110 180,110" fill="#FFE600"/>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#FFE600" text-anchor="middle">10.000</text>
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="28" fill="white" text-anchor="middle">PASSOS</text>
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="20" fill="#FFE600" text-anchor="middle"> META ATINGIDA</text>
+</svg>
