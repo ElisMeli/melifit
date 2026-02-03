@@ -771,9 +771,13 @@
             height: 100%;
             max-height: 350px;
             object-fit: cover;
-            object-position: top;
+            object-position: center;
             display: block;
             background: #000;
+        }
+
+        .video-item.energia-video video {
+            object-position: top;
         }
 
         .video-item:hover {
@@ -1431,7 +1435,7 @@
                     <div class="video-icon">💪 Força</div>
                 </div>
                 
-                <div class="video-item">
+                <div class="video-item energia-video">
                     <video 
                         class="lazy-video" 
                         muted 
