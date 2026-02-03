@@ -754,9 +754,12 @@
         /* Categorias Premium - FUTURISTIC TECH STYLE */
         .categorias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
             margin-top: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .categoria-card {
@@ -2374,63 +2377,24 @@
 
         <!-- Sistema de Pontos -->
         <div class="card">
-            <h2>🎯 Sistema de Pontuação Gamificado</h2>
+            <h2>🎯 Sistema de Pontuação Simplificado</h2>
             
             <h3>Pontos Base (validam seu dia)</h3>
             <p>Todas as atividades válidas = <strong style="color: #1E40AF; font-size: 1.5em;">10 pontos</strong></p>
 
-            <h3>🌟 Bônus de Desempenho</h3>
-            <div class="pontos-grid">
-                <div class="ponto-item">
-                    <div class="pontos">+5</div>
-                    <div class="descricao">15.000 passos</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+3</div>
-                    <div class="descricao">60min+ de treino</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+3</div>
-                    <div class="descricao">5km+ corrida</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+5</div>
-                    <div class="descricao">2km+ natação</div>
-                </div>
-            </div>
-
-            <h3>🔥 Bônus de Consistência</h3>
-            <div class="pontos-grid">
-                <div class="ponto-item">
-                    <div class="pontos">+5</div>
-                    <div class="descricao">3 dias consecutivos</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+10</div>
-                    <div class="descricao">7 dias consecutivos</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+20</div>
-                    <div class="descricao">15 dias consecutivos</div>
-                </div>
-                <div class="ponto-item">
-                    <div class="pontos">+50</div>
-                    <div class="descricao">30 dias completos!</div>
-                </div>
-            </div>
-
             <h3>👥 Bônus de Engajamento</h3>
+            <p style="margin-bottom: 15px;">Ganhe pontos extras interagindo com a comunidade!</p>
             <div class="pontos-grid">
                 <div class="ponto-item">
                     <div class="pontos">+1</div>
                     <div class="descricao">Comentar treino</div>
                 </div>
                 <div class="ponto-item">
-                    <div class="pontos">+5</div>
-                    <div class="descricao">Treino em dupla</div>
+                    <div class="pontos">+3</div>
+                    <div class="descricao">Treino em dupla/equipe</div>
                 </div>
                 <div class="ponto-item">
-                    <div class="pontos">+5</div>
+                    <div class="pontos">+3</div>
                     <div class="descricao">Foto criativa</div>
                 </div>
                 <div class="ponto-item">
@@ -2438,11 +2402,18 @@
                     <div class="descricao">Treino antes 7h</div>
                 </div>
             </div>
+
+            <div class="destaque" style="margin-top: 25px;">
+                <strong>📊 Exemplo prático:</strong><br>
+                • Treino normal = 10 pts<br>
+                • Treino em dupla + foto criativa = 10 + 3 + 3 = <strong>16 pts</strong><br>
+                • Treino antes 7h + comentou = 10 + 2 + 1 = <strong>13 pts</strong>
+            </div>
         </div>
 
         <!-- Premiação -->
         <div class="card" id="categorias">
-            <h2 style="font-size: 1.8em;">🏆 7 Formas de Ganhar!</h2>
+            <h2 style="font-size: 1.8em;">🏆 2 Formas de Ganhar!</h2>
             
             <div class="categorias-grid">
                 <div class="categoria-card">
@@ -2453,7 +2424,7 @@
                     <div class="particle"></div>
                     <div class="trophy">🏆</div>
                     <h4>Categoria Principal</h4>
-                    <div class="premio">50% do prêmio</div>
+                    <div class="premio">80% do prêmio</div>
                     <p>Complete 24+ dias ativos</p>
                     <p style="font-size: 0.9em; margin-top: 10px;">Dividido entre todos os classificados</p>
                 </div>
@@ -2465,75 +2436,16 @@
                     <div class="particle"></div>
                     <div class="particle"></div>
                     <div class="trophy">🥇</div>
-                    <h4>Top 1 Pontos</h4>
-                    <div class="premio">15% do prêmio</div>
+                    <h4>Top Pontos</h4>
+                    <div class="premio">20% do prêmio</div>
                     <p>Quem acumular mais pontos no total</p>
-                </div>
-
-                <div class="categoria-card">
-                    <div class="scanline"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="trophy">🥈</div>
-                    <h4>Top 2 Pontos</h4>
-                    <div class="premio">10% do prêmio</div>
-                    <p>Segundo colocado em pontos</p>
-                </div>
-
-                <div class="categoria-card">
-                    <div class="scanline"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="trophy">🥉</div>
-                    <h4>Top 3 Pontos</h4>
-                    <div class="premio">5% do prêmio</div>
-                    <p>Terceiro colocado em pontos</p>
-                </div>
-
-                <div class="categoria-card">
-                    <div class="scanline"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="trophy">🚶</div>
-                    <h4>Viajante MeliFIT</h4>
-                    <div class="premio">10% do prêmio</div>
-                    <p>Maior soma de passos acumulados</p>
-                </div>
-
-                <div class="categoria-card">
-                    <div class="scanline"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="trophy">💪</div>
-                    <h4>Consistência</h4>
-                    <div class="premio">5% do prêmio</div>
-                    <p>Mais dias consecutivos sem falta</p>
-                </div>
-
-                <div class="categoria-card">
-                    <div class="scanline"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="trophy">📸</div>
-                    <h4>Foto da Galera</h4>
-                    <div class="premio">5% do prêmio</div>
-                    <p>Post mais curtido no GymRats</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">Vencedor único</p>
                 </div>
             </div>
 
             <div class="destaque" style="margin-top: 30px;">
-                <strong>💰 Você pode ganhar em VÁRIAS categorias!</strong> Por exemplo: completar os 24 dias (categoria principal) 
-                E ser o Top 1 em pontos E ter a foto mais curtida = 3 prêmios! 🎉
+                <strong>💰 Você pode ganhar nas 2 categorias!</strong> Por exemplo: completar os 24 dias (categoria principal) 
+                E ser o Top 1 em pontos = 2 prêmios! 🎉
             </div>
         </div>
 
