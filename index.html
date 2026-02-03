@@ -274,12 +274,15 @@
 
         /* Elementos Geométricos Flutuantes */
         .floating-circle,
-        .floating-square {
+        .floating-square,
+        .floating-triangle,
+        .floating-hexagon,
+        .floating-diamond {
             position: absolute;
             border: 2px solid rgba(255, 230, 0, 0.3);
             opacity: 0.4;
             pointer-events: none;
-            animation: floatGeometric 8s ease-in-out infinite;
+            z-index: 1;
         }
 
         .floating-circle {
@@ -288,9 +291,22 @@
 
         .floating-square {
             border-radius: 8px;
+        }
+
+        .floating-diamond {
             transform: rotate(45deg);
         }
 
+        .floating-triangle {
+            width: 0;
+            height: 0;
+            border: none;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 55px solid rgba(255, 230, 0, 0.25);
+        }
+
+        /* Animações variadas */
         @keyframes floatGeometric {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg); 
@@ -301,6 +317,38 @@
                 opacity: 0.6; 
             }
         }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+            50% { transform: translateY(-40px) translateX(-10px) rotate(-5deg); }
+            75% { transform: translateY(-20px) translateX(5px) rotate(3deg); }
+        }
+
+        @keyframes floatMedium {
+            0%, 100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.4; }
+            33% { transform: translateY(-30px) translateX(-15px) scale(1.1); opacity: 0.6; }
+            66% { transform: translateY(30px) translateX(15px) scale(0.9); opacity: 0.3; }
+        }
+
+        @keyframes floatZigzag {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            25% { transform: translateY(-25px) translateX(25px); }
+            50% { transform: translateY(-50px) translateX(0px); }
+            75% { transform: translateY(-25px) translateX(-25px); }
+        }
+
+        @keyframes floatPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 0.2; }
+        }
+
+        .anim-geometric { animation: floatGeometric 8s ease-in-out infinite; }
+        .anim-slow { animation: floatSlow 20s ease-in-out infinite; }
+        .anim-medium { animation: floatMedium 15s ease-in-out infinite; }
+        .anim-zigzag { animation: floatZigzag 18s ease-in-out infinite; }
+        .anim-pulse { animation: floatPulse 12s ease-in-out infinite; }
+
 
         /* Glows de fundo */
         .hero-glow {
@@ -1710,6 +1758,34 @@
     </style>
 </head>
 <body>
+    <!-- Elementos Geométricos Flutuantes Globais -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden;">
+        <!-- Seção Superior -->
+        <div class="floating-circle anim-slow" style="top: 5%; left: 5%; width: 120px; height: 120px;"></div>
+        <div class="floating-square anim-pulse" style="top: 15%; right: 8%; width: 80px; height: 80px;"></div>
+        <div class="floating-triangle anim-medium" style="top: 25%; left: 12%;"></div>
+        
+        <!-- Seção Média-Superior -->
+        <div class="floating-diamond anim-zigzag" style="top: 35%; right: 15%; width: 70px; height: 70px;"></div>
+        <div class="floating-circle anim-medium" style="top: 40%; left: 8%; width: 90px; height: 90px;"></div>
+        <div class="floating-square anim-slow" style="top: 48%; right: 10%; width: 65px; height: 65px;"></div>
+        
+        <!-- Seção Meio -->
+        <div class="floating-triangle anim-pulse" style="top: 55%; left: 15%;"></div>
+        <div class="floating-circle anim-zigzag" style="top: 58%; right: 12%; width: 100px; height: 100px;"></div>
+        <div class="floating-diamond anim-slow" style="top: 65%; left: 10%; width: 75px; height: 75px;"></div>
+        
+        <!-- Seção Média-Inferior -->
+        <div class="floating-square anim-medium" style="top: 72%; right: 8%; width: 85px; height: 85px;"></div>
+        <div class="floating-circle anim-pulse" style="top: 78%; left: 12%; width: 95px; height: 95px;"></div>
+        <div class="floating-triangle anim-zigzag" style="top: 82%; right: 15%;"></div>
+        
+        <!-- Seção Inferior -->
+        <div class="floating-diamond anim-medium" style="top: 88%; left: 8%; width: 70px; height: 70px;"></div>
+        <div class="floating-circle anim-slow" style="top: 92%; right: 10%; width: 110px; height: 110px;"></div>
+        <div class="floating-square anim-pulse" style="top: 95%; left: 15%; width: 60px; height: 60px;"></div>
+    </div>
+
     <!-- Menu de Navegação -->
     <nav class="navbar">
         <div class="navbar-container">
