@@ -149,10 +149,12 @@
         .navbar-dropdown > a::after {
             content: '▼';
             font-size: 0.7em;
-            transition: transform 0.3s ease;
+            opacity: 0;
+            transition: all 0.3s ease;
         }
 
         .navbar-dropdown:hover > a::after {
+            opacity: 1;
             transform: rotate(180deg);
         }
 
