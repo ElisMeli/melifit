@@ -80,88 +80,238 @@
             z-index: 1;
         }
 
-        /* Header Modernizado */
-        .header {
-            background: linear-gradient(135deg, #FFE600 0%, #FFD700 50%, #FFC700 100%);
-            padding: 35px 20px;
-            text-align: center;
-            box-shadow: 
-                0 10px 40px rgba(255, 230, 0, 0.3),
-                0 1px 0px rgba(255, 255, 255, 0.2) inset;
-            margin-bottom: 25px;
+        /* ============================
+           HERO FUTURISTA
+           ============================ */
+        
+        .hero-futurista {
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a1a;
             overflow: hidden;
+            padding: 40px 20px;
         }
 
-        /* Efeito de brilho no header */
-        .header::before {
-            content: '';
+        /* Elementos Geométricos Flutuantes */
+        .floating-circle,
+        .floating-square {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            animation: headerShine 3s infinite;
+            border: 2px solid rgba(255, 230, 0, 0.3);
+            opacity: 0.4;
+            pointer-events: none;
+            animation: floatGeometric 8s ease-in-out infinite;
         }
 
-        @keyframes headerShine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .floating-circle {
+            border-radius: 50%;
         }
 
-        .header h1 {
-            color: #2D3277;
-            font-size: 2.8em;
-            font-weight: 800;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .floating-square {
+            border-radius: 8px;
+            transform: rotate(45deg);
+        }
+
+        @keyframes floatGeometric {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 0.3; 
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg); 
+                opacity: 0.6; 
+            }
+        }
+
+        /* Glows de fundo */
+        .hero-glow {
+            position: absolute;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Conteúdo do Hero */
+        .hero-content {
             position: relative;
-            text-shadow: 2px 2px 0px rgba(45, 50, 119, 0.1);
-            animation: titlePulse 2s ease-in-out infinite;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
         }
 
-        @keyframes titlePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .header .hashtag {
-            color: #2D3277;
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-top: 5px;
-            position: relative;
-        }
-
-        .header .version {
-            background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%);
-            color: #FFE600;
+        /* Badge Superior */
+        .hero-badge {
             display: inline-block;
-            padding: 8px 20px;
+            margin-bottom: 30px;
+            padding: 12px 28px;
+            border: 2px solid rgba(255, 230, 0, 0.5);
             border-radius: 50px;
-            margin-top: 12px;
-            font-weight: 700;
-            font-size: 0.85em;
-            letter-spacing: 0.5px;
+            background: rgba(255, 230, 0, 0.05);
+            backdrop-filter: blur(10px);
             box-shadow: 
-                0 4px 15px rgba(45, 50, 119, 0.4),
-                0 0 20px rgba(255, 230, 0, 0.2);
-            position: relative;
-            transition: all 0.3s ease;
+                0 0 30px rgba(255, 230, 0, 0.2),
+                inset 0 0 20px rgba(255, 230, 0, 0.1);
+            animation: pulseGlow 3s ease-in-out infinite;
         }
 
-        .header .version:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 6px 25px rgba(45, 50, 119, 0.5),
-                0 0 30px rgba(255, 230, 0, 0.3);
+        .hero-badge span {
+            font-family: 'Courier New', monospace;
+            color: #FFE600;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px rgba(255, 230, 0, 0.2),
+                    inset 0 0 20px rgba(255, 230, 0, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 0 40px rgba(255, 230, 0, 0.4),
+                    inset 0 0 30px rgba(255, 230, 0, 0.2);
+            }
+        }
+
+        /* Título Principal */
+        .hero-title {
+            font-size: 8em;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 0 0 20px 0;
+            line-height: 1;
+            letter-spacing: -2px;
+            text-shadow: 
+                0 0 40px rgba(255, 230, 0, 0.3),
+                0 0 80px rgba(255, 230, 0, 0.2);
+            animation: titleAppear 1.2s ease-out 0.3s both;
+        }
+
+        @keyframes titleAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        /* Subtítulo */
+        .hero-subtitle {
+            font-size: 1.8em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin: 0 0 40px 0;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        /* Hashtag */
+        .hero-hashtag {
+            font-size: 2.2em;
+            color: #FFE600;
+            font-weight: 700;
+            text-shadow: 
+                0 0 30px rgba(255, 230, 0, 0.5),
+                0 0 60px rgba(255, 230, 0, 0.3);
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Indicador de Scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+
+        .scroll-mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(255, 230, 0, 0.5);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-mouse::before {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: #FFE600;
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 4em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3em;
+            }
+            
+            .hero-hashtag {
+                font-size: 1.5em;
+            }
+            
+            .hero-badge span {
+                font-size: 0.8em;
+            }
         }
 
         /* Cards com Glassmorphism */
@@ -1281,10 +1431,41 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🏃 MELIFIT 🏃</h1>
-        <p class="hashtag">#TreinamosParaGanhar</p>
-        <span class="version">3º EDIÇÃO - COM NOVIDADES!</span>
+    <!-- Hero Section Futurista -->
+    <div class="hero-futurista">
+        <!-- Elementos Geométricos Flutuantes -->
+        <div class="floating-circle" style="top: 10%; left: 8%; width: 100px; height: 100px; animation-delay: 0s;"></div>
+        <div class="floating-circle" style="top: 60%; right: 10%; width: 80px; height: 80px; animation-delay: 2s;"></div>
+        <div class="floating-square" style="bottom: 20%; left: 15%; width: 60px; height: 60px; animation-delay: 1s;"></div>
+        <div class="floating-square" style="top: 30%; right: 20%; width: 70px; height: 70px; animation-delay: 3s;"></div>
+        
+        <!-- Glows de fundo -->
+        <div class="hero-glow" style="top: 20%; right: 15%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,230,0,0.15) 0%, transparent 70%);"></div>
+        <div class="hero-glow" style="bottom: 10%; left: 10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,230,0,0.1) 0%, transparent 70%);"></div>
+        
+        <!-- Conteúdo Principal -->
+        <div class="hero-content">
+            <!-- Badge -->
+            <div class="hero-badge">
+                <span>// VAMOS_TREINAR()</span>
+            </div>
+            
+            <!-- Título Principal -->
+            <h1 class="hero-title">MeliFIT</h1>
+            
+            <!-- Subtítulo -->
+            <p class="hero-subtitle">Desafio de Saúde e Bem-estar</p>
+            
+            <!-- Hashtag -->
+            <div class="hero-hashtag">
+                #TreinamosParaGanhar
+            </div>
+        </div>
+        
+        <!-- Indicador de Scroll -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse"></div>
+        </div>
     </div>
 
     <div class="container">
