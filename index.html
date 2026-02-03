@@ -534,6 +534,49 @@
             margin-top: 5px;
         }
 
+        /* Cards de Atividades */
+        .atividades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .atividade-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(45, 50, 119, 0.15);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+        }
+
+        .atividade-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(45, 50, 119, 0.25);
+            border-color: #2D3277;
+        }
+
+        .atividade-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .atividade-card .nome {
+            color: #2D3277;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .atividades-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+            }
+        }
+
         /* CTA Button Modernizado */
         .cta-section {
             background: linear-gradient(135deg, #FFE600 0%, #FFD700 50%, #FFC700 100%);
@@ -1049,18 +1092,43 @@
                 claro, curtir o caminho juntos.
             </p>
             
-            <div class="info-box" style="background: linear-gradient(135deg, #FFE600 0%, #FFC700 100%); margin-top: 25px; border: none;">
-                <h3 style="color: #2D3277; font-size: 1.4em; margin-bottom: 20px;">💪 Aqui vale tudo:</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; text-align: left;">
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Corrida</div>
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Caminhada</div>
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Trilha</div>
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Musculação</div>
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Contar passos</div>
-                    <div style="color: #2D3277; font-weight: 600; font-size: 1.05em;">➡️ Qualquer atividade física!</div>
+            <div class="info-box" style="background: linear-gradient(135deg, #FFE600 0%, #FFC700 100%); margin-top: 25px; border: none; padding: 35px 30px;">
+                <h3 style="color: #2D3277; font-size: 1.5em; margin-bottom: 25px; text-align: center;">💪 Aqui vale tudo:</h3>
+                
+                <div class="atividades-grid">
+                    <div class="atividade-card">
+                        <div class="icon">🏃</div>
+                        <div class="nome">Corrida</div>
+                    </div>
+                    
+                    <div class="atividade-card">
+                        <div class="icon">🚶</div>
+                        <div class="nome">Caminhada</div>
+                    </div>
+                    
+                    <div class="atividade-card">
+                        <div class="icon">⛰️</div>
+                        <div class="nome">Trilha</div>
+                    </div>
+                    
+                    <div class="atividade-card">
+                        <div class="icon">💪</div>
+                        <div class="nome">Musculação</div>
+                    </div>
+                    
+                    <div class="atividade-card">
+                        <div class="icon">📱</div>
+                        <div class="nome">Contar passos</div>
+                    </div>
+                    
+                    <div class="atividade-card">
+                        <div class="icon">🔥</div>
+                        <div class="nome">Qualquer atividade!</div>
+                    </div>
                 </div>
-                <p style="color: #2D3277; margin-top: 20px; font-size: 1.05em; font-weight: 600; text-align: center;">
-                    🔥 O importante é sair do lugar e se movimentar!
+                
+                <p style="color: #2D3277; margin-top: 30px; font-size: 1.15em; font-weight: 700; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    🎯 O importante é sair do lugar e se movimentar!
                 </p>
             </div>
         </div>
