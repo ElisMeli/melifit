@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MeliFIT v2.0 - Desafio de saúde e bem-estar. #TreinamosParaGanhar">
+    <meta name="keywords" content="MeliFIT, fitness, desafio, saúde, bem-estar">
+    <meta name="author" content="MeliFIT Operations Center">
+    <title>MeliFIT v2.0 - #TreinamosParaGanhar</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏃</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #FFE600;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #2D3277;
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header .hashtag {
+            color: #2D3277;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .header .version {
+            background: #2D3277;
+            color: #FFE600;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #2D3277;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #FFE600;
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #2D3277;
+            font-size: 1.5em;
+            margin: 20px 0 15px 0;
+        }
+
+        /* Novidades Banner */
+        .novidade-banner {
+            background: linear-gradient(135deg, #FFE600 0%, #ffd700 100%);
+            color: #2D3277;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(255, 230, 0, 0.4);
+        }
+
+        .novidade-banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .novidade-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .novidade-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* Modalidades Grid */
+        .modalidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .modalidade-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 3px solid #FFE600;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .modalidade-card:hover {
+            background: linear-gradient(135deg, #FFE600 0%, #ffd700 100%);
+            transform: scale(1.05);
+        }
+
+        .modalidade-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .modalidade-card h4 {
+            color: #2D3277;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .modalidade-card .novo {
+            background: #ff4757;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Pontos System */
+        .pontos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ponto-item {
+            background: #f8f9fa;
+            border-left: 5px solid #FFE600;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .ponto-item .pontos {
+            color: #2D3277;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .ponto-item .descricao {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* Categorias Premium */
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .categoria-card {
+            background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .categoria-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 230, 0, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .categoria-card .trophy {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .categoria-card .premio {
+            color: #FFE600;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .info-box h3 {
+            color: #FFE600;
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item .numero {
+            font-size: 2.5em;
+            color: #FFE600;
+            font-weight: bold;
+        }
+
+        .info-item .label {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            background: linear-gradient(135deg, #FFE600 0%, #ffd700 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 8px 30px rgba(255, 230, 0, 0.4);
+        }
+
+        .cta-button {
+            background: #2D3277;
+            color: #FFE600;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #1a1d4a;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Hover effects for links */
+        a[href*="forms.google.com"]:hover,
+        a[href*="chat.google.com"]:hover,
+        a[href*="gymrats.app"]:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        /* Copy on click functionality */
+        code {
+            cursor: pointer;
+            user-select: all;
+        }
+
+        code:hover {
+            background: #fffacd !important;
+        }
+
+        /* Badges */
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .badge-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .badge-item .emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .badge-item .nome {
+            color: #2D3277;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        /* Destaque Box */
+        .destaque {
+            background: #fff3cd;
+            border-left: 5px solid #FFE600;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .destaque strong {
+            color: #2D3277;
+        }
+
+        /* Lista com Checkmark */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .modalidades-grid,
+            .categorias-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Video responsivo no mobile */
+            .card iframe {
+                max-width: 100%;
+            }
+        }
+
+        /* Video container responsivo */
+        .video-container {
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 aspect ratio for Shorts */
+            height: 0;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏃 MELIFIT 🏃</h1>
+        <p class="hashtag">#TreinamosParaGanhar</p>
+        <span class="version">VERSÃO 2.0 - COM NOVIDADES!</span>
+    </div>
+
+    <div class="container">
+        
+        <!-- Novidades Banner -->
+        <div class="novidade-banner">
+            <h2>🚀 NOVIDADES DA VERSÃO 2.0</h2>
+            <div class="novidade-list">
+                <div class="novidade-item">
+                    🚶 Contador de Passos<br>10 mil passos = 1 dia válido!
+                </div>
+                <div class="novidade-item">
+                    🎯 Sistema de Pontos<br>Gamificação completa!
+                </div>
+                <div class="novidade-item">
+                    🏆 7 Categorias<br>Mais formas de ganhar!
+                </div>
+                <div class="novidade-item">
+                    🎖️ Badges Digitais<br>Colecione conquistas!
+                </div>
+            </div>
+        </div>
+
+        <!-- O que é -->
+        <div class="card">
+            <h2>🎯 O que é o MeliFIT?</h2>
+            <p style="font-size: 1.1em;">
+                O MeliFIT é um <strong>desafio de saúde e bem-estar</strong> pensado para quem quer se mexer e se divertir. 
+                O mais importante não é competir, mas sim <strong>celebrar cada treino, cada conquista</strong> e, 
+                claro, curtir o caminho juntos.
+            </p>
+            
+            <div class="info-box">
+                <h3>📊 Informações Gerais</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="numero">30</div>
+                        <div class="label">Dias de desafio</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="numero">R$ 20</div>
+                        <div class="label">Valor da inscrição</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="numero">6</div>
+                        <div class="label">Faltas permitidas</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="numero">24</div>
+                        <div class="label">Dias mínimos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modalidades -->
+        <div class="card">
+            <h2>🏋️ Modalidades Aceitas</h2>
+            <div class="modalidades-grid">
+                <div class="modalidade-card">
+                    <div class="icon">💪</div>
+                    <h4>Exercício Tradicional</h4>
+                    <p>45 minutos de musculação, natação, funcional, yoga, etc.</p>
+                    <p><strong>OU</strong></p>
+                    <p>3km de corrida/caminhada</p>
+                </div>
+
+                <div class="modalidade-card">
+                    <span class="novo">NOVO!</span>
+                    <div class="icon">🚶</div>
+                    <h4>Contador de Passos</h4>
+                    <p><strong>10.000 passos = 1 dia válido</strong></p>
+                    <p>Ideal para quem está viajando ou com rotina atípica!</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">
+                        ≈ 7-8 km | ≈ 60-90 min | ≈ 300-500 cal
+                    </p>
+                </div>
+
+                <div class="modalidade-card">
+                    <span class="novo">NOVO!</span>
+                    <div class="icon">🔄</div>
+                    <h4>Combo Flex</h4>
+                    <p>Combine atividades no mesmo dia!</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">
+                        Ex: 20min musculação + 5.000 passos
+                    </p>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>🎯 Grande Novidade:</strong> Agora você pode usar o contador de passos do seu celular 
+                (Apple Health, Google Fit, Samsung Health) para validar seu dia! Viajando a trabalho? 
+                Sem acesso à academia? Sem problemas! Acumule 10 mil passos e pronto! 🚶✨
+            </div>
+        </div>
+
+        <!-- Sistema de Pontos -->
+        <div class="card">
+            <h2>🎯 Sistema de Pontuação Gamificado</h2>
+            
+            <h3>Pontos Base (validam seu dia)</h3>
+            <p>Todas as atividades válidas = <strong style="color: #2D3277; font-size: 1.5em;">10 pontos</strong></p>
+
+            <h3>🌟 Bônus de Desempenho</h3>
+            <div class="pontos-grid">
+                <div class="ponto-item">
+                    <div class="pontos">+5</div>
+                    <div class="descricao">15.000 passos</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+3</div>
+                    <div class="descricao">60min+ de treino</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+3</div>
+                    <div class="descricao">5km+ corrida</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+5</div>
+                    <div class="descricao">2km+ natação</div>
+                </div>
+            </div>
+
+            <h3>🔥 Bônus de Consistência</h3>
+            <div class="pontos-grid">
+                <div class="ponto-item">
+                    <div class="pontos">+5</div>
+                    <div class="descricao">3 dias consecutivos</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+10</div>
+                    <div class="descricao">7 dias consecutivos</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+20</div>
+                    <div class="descricao">15 dias consecutivos</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+50</div>
+                    <div class="descricao">30 dias completos!</div>
+                </div>
+            </div>
+
+            <h3>👥 Bônus de Engajamento</h3>
+            <div class="pontos-grid">
+                <div class="ponto-item">
+                    <div class="pontos">+1</div>
+                    <div class="descricao">Comentar treino</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+5</div>
+                    <div class="descricao">Treino em dupla</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+5</div>
+                    <div class="descricao">Foto criativa</div>
+                </div>
+                <div class="ponto-item">
+                    <div class="pontos">+2</div>
+                    <div class="descricao">Treino antes 7h</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premiação -->
+        <div class="card">
+            <h2>🏆 7 Formas de Ganhar!</h2>
+            
+            <div class="categorias-grid">
+                <div class="categoria-card">
+                    <div class="trophy">🏆</div>
+                    <h4>Categoria Principal</h4>
+                    <div class="premio">50% do prêmio</div>
+                    <p>Complete 24+ dias ativos</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">Dividido entre todos os classificados</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">🥇</div>
+                    <h4>Top 1 Pontos</h4>
+                    <div class="premio">15% do prêmio</div>
+                    <p>Quem acumular mais pontos no total</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">🥈</div>
+                    <h4>Top 2 Pontos</h4>
+                    <div class="premio">10% do prêmio</div>
+                    <p>Segundo colocado em pontos</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">🥉</div>
+                    <h4>Top 3 Pontos</h4>
+                    <div class="premio">5% do prêmio</div>
+                    <p>Terceiro colocado em pontos</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">🚶</div>
+                    <h4>Viajante MeliFIT</h4>
+                    <div class="premio">10% do prêmio</div>
+                    <p>Maior soma de passos acumulados</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">💪</div>
+                    <h4>Consistência</h4>
+                    <div class="premio">5% do prêmio</div>
+                    <p>Mais dias consecutivos sem falta</p>
+                </div>
+
+                <div class="categoria-card">
+                    <div class="trophy">📸</div>
+                    <h4>Foto da Galera</h4>
+                    <div class="premio">5% do prêmio</div>
+                    <p>Post mais curtido no GymRats</p>
+                </div>
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>💰 Você pode ganhar em VÁRIAS categorias!</strong> Por exemplo: completar os 24 dias (categoria principal) 
+                E ser o Top 1 em pontos E ter a foto mais curtida = 3 prêmios! 🎉
+            </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="card">
+            <h2>🎖️ Badges e Conquistas</h2>
+            <p>Desbloqueie badges especiais durante o desafio!</p>
+            
+            <h3>Badges de Progresso</h3>
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="emoji">🥉</div>
+                    <div class="nome">Primeira Semana</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">🥈</div>
+                    <div class="nome">Quinzena Forte</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">🥇</div>
+                    <div class="nome">Mês Completo</div>
+                </div>
+            </div>
+
+            <h3>Badges de Desempenho</h3>
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="emoji">🚶</div>
+                    <div class="nome">100K Club</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">🏃</div>
+                    <div class="nome">Maratonista</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">💪</div>
+                    <div class="nome">Guerreiro</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">🔥</div>
+                    <div class="nome">Em Chamas</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">🌅</div>
+                    <div class="nome">Madrugador</div>
+                </div>
+                <div class="badge-item">
+                    <div class="emoji">📸</div>
+                    <div class="nome">Influencer</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tutorial GymRats -->
+        <div class="card" style="background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%); color: white;">
+            <h2 style="color: #FFE600; border-bottom-color: #FFE600;">📱 Como Usar o GymRats?</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px; color: white;">
+                Assista ao vídeo tutorial e aprenda como registrar seus treinos no app oficial do desafio!
+            </p>
+            
+            <div style="display: flex; justify-content: center; align-items: center; margin: 30px 0;">
+                <div style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 9/16; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 30px rgba(255, 230, 0, 0.3);">
+                    <iframe 
+                        src="https://www.youtube.com/embed/7Zxoeu_LT80" 
+                        title="Tutorial GymRats - MeliFIT" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
+                </div>
+            </div>
+
+            <div style="background: rgba(255, 230, 0, 0.1); padding: 20px; border-radius: 10px; border-left: 5px solid #FFE600; margin-top: 20px;">
+                <h3 style="color: #FFE600; margin-bottom: 15px;">📝 O que você vai aprender:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0;">✅</span> Como fazer o primeiro registro de treino
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0;">✅</span> Como conectar seu relógio inteligente
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0;">✅</span> Como postar fotos de comprovação
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0;">✅</span> Como validar seu treino diário
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 30px; position: relative;">
+                        <span style="position: absolute; left: 0;">✅</span> Como interagir com outros participantes
+                    </li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://share.gymrats.app/join?code=LSPFWNCQ" target="_blank" style="background: #FFE600; color: #2D3277; padding: 15px 40px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; transition: all 0.3s ease;">
+                    📲 Baixar GymRats Agora
+                </a>
+            </div>
+        </div>
+
+        <!-- Comprovação -->
+        <div class="card">
+            <h2>📸 Como Comprovar?</h2>
+            
+            <h3>Para Exercícios Tradicionais:</h3>
+            <ul class="checklist">
+                <li>Print do relógio conectado (Garmin, Apple Watch, Fitbit)</li>
+                <li>Print do Strava ou app de exercícios</li>
+                <li>Foto manual com data/hora visível</li>
+            </ul>
+
+            <h3>Para Contador de Passos (NOVO!):</h3>
+            <ul class="checklist">
+                <li>Print do app nativo do celular (Apple Health, Google Fit, Samsung Health)</li>
+                <li>Deve mostrar: data, total de passos e horário</li>
+                <li>Postagem em até 24h após atingir a meta</li>
+            </ul>
+
+            <div class="destaque">
+                <strong>⏰ Importante:</strong> Todas as comprovações devem ser postadas em até <strong>24 horas</strong> 
+                após a atividade. Apenas <strong>1 exercício validado por dia</strong>.
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card">
+            <h2>❓ Perguntas Frequentes</h2>
+            
+            <h3>Posso alternar entre exercício e contador de passos?</h3>
+            <p>✅ Sim! Você pode variar livremente entre as modalidades durante os 30 dias.</p>
+
+            <h3>Se eu fizer exercício E atingir 10k passos no mesmo dia?</h3>
+            <p>✅ Vale 1 dia + os pontos bônus se aplicável (ex: 15k passos = 10 pts base + 5 bônus).</p>
+
+            <h3>Posso usar smartband básica?</h3>
+            <p>✅ Sim, desde que sincronize com o app do celular e você consiga tirar print.</p>
+
+            <h3>E se esquecer de postar no prazo?</h3>
+            <p>⚠️ Infelizmente não será validado. O prazo de 24h é rígido.</p>
+
+            <h3>Posso ganhar em mais de uma categoria?</h3>
+            <p>✅ Sim! Você pode acumular prêmios de diferentes categorias.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2 style="color: #2D3277; font-size: 2.5em; margin-bottom: 10px;">
+                Pronto para o Desafio? 🔥
+            </h2>
+            <p style="color: #2D3277; font-size: 1.2em; margin-bottom: 20px;">
+                Inscrições abertas! Não fique de fora da melhor edição do MeliFIT!
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXqEwXV199LcliYWoI6qWgJifl_CBI8QfOlGR0Us73GVnmg/viewform?usp=preview" target="_blank" class="cta-button">QUERO ME INSCREVER! 💪</a>
+            <p style="color: #2D3277; margin-top: 20px; font-weight: 600;">
+                📱 App: GymRats | 💰 R$ 20,00 | 📅 30 dias de desafio
+            </p>
+        </div>
+        
+        <!-- Links Importantes -->
+        <div class="card">
+            <h2>📝 Como Participar?</h2>
+            
+            <div style="display: grid; gap: 20px; margin-top: 20px;">
+                
+                <div style="background: linear-gradient(135deg, #FFE600 0%, #ffd700 100%); padding: 25px; border-radius: 12px; text-align: center;">
+                    <h3 style="color: #2D3277; margin-bottom: 15px;">1️⃣ Preencha o Formulário</h3>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjXqEwXV199LcliYWoI6qWgJifl_CBI8QfOlGR0Us73GVnmg/viewform?usp=preview" target="_blank" style="background: #2D3277; color: #FFE600; padding: 15px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; transition: all 0.3s ease;">
+                        📝 Abrir Formulário de Inscrição
+                    </a>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; text-align: center; border: 3px solid #2D3277;">
+                    <h3 style="color: #2D3277; margin-bottom: 15px;">2️⃣ Pague a Inscrição (R$ 20,00)</h3>
+                    <p style="margin-bottom: 15px;"><strong>Chave PIX:</strong></p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0; border: 2px dashed #FFE600;">
+                        <code style="font-size: 1.1em; color: #2D3277; font-weight: 600;">3f60897b-efe1-4e85-a94c-f3b265051df6</code>
+                    </div>
+                    <p style="margin: 10px 0;"><strong>OU pelo telefone:</strong></p>
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0; border: 2px dashed #FFE600;">
+                        <code style="font-size: 1.1em; color: #2D3277; font-weight: 600;">(21) 99816-7897</code>
+                    </div>
+                    <p style="font-size: 0.9em; color: #666; margin-top: 10px;">💡 Dica: Clique para copiar a chave PIX</p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%); padding: 25px; border-radius: 12px; text-align: center;">
+                    <h3 style="color: #FFE600; margin-bottom: 15px;">3️⃣ Entre no Grupo</h3>
+                    <a href="https://chat.google.com/room/AAQA8ZmYJSU?cls=7" target="_blank" style="background: #FFE600; color: #2D3277; padding: 15px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; margin: 10px; transition: all 0.3s ease;">
+                        💬 Grupo Google Chat
+                    </a>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #FFE600 0%, #ffd700 100%); padding: 25px; border-radius: 12px; text-align: center;">
+                    <h3 style="color: #2D3277; margin-bottom: 15px;">4️⃣ Baixe o App GymRats</h3>
+                    <a href="https://share.gymrats.app/join?code=LSPFWNCQ" target="_blank" style="background: #2D3277; color: #FFE600; padding: 15px 30px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; transition: all 0.3s ease;">
+                        📱 Baixar GymRats
+                    </a>
+                    <p style="color: #2D3277; margin-top: 15px; font-weight: 600;">
+                        Código do Grupo: <code style="background: white; padding: 5px 15px; border-radius: 5px; font-size: 1.2em;">LSPFWNCQ</code>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="destaque" style="margin-top: 30px;">
+                <strong>⚠️ Importante:</strong> Complete TODOS os passos acima para garantir sua participação! 
+                O pagamento deve ser feito até o início do desafio.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: white; padding: 40px 20px;">
+            <h2 style="font-size: 2.5em; color: #FFE600;">#TreinamosParaGanhar</h2>
+            <p style="font-size: 1.2em; margin-top: 10px;">
+                "O importante não é ser o melhor, é ser melhor que ontem!"
+            </p>
+            <p style="margin-top: 20px; color: #ccc;">
+                MeliFIT Operations Center - Versão 2.0
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Função para copiar ao clicar no código PIX
+        document.querySelectorAll('code').forEach(function(codeElement) {
+            codeElement.addEventListener('click', function() {
+                const text = this.textContent;
+                navigator.clipboard.writeText(text).then(function() {
+                    // Feedback visual
+                    const originalBg = codeElement.style.background;
+                    codeElement.style.background = '#90EE90';
+                    
+                    // Mostra mensagem temporária
+                    const originalText = codeElement.textContent;
+                    codeElement.textContent = '✅ Copiado!';
+                    
+                    setTimeout(function() {
+                        codeElement.style.background = originalBg;
+                        codeElement.textContent = originalText;
+                    }, 2000);
+                }).catch(function(err) {
+                    console.error('Erro ao copiar:', err);
+                });
+            });
+        });
+
+        // Smooth scroll para âncoras internas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
