@@ -1844,12 +1844,6 @@
         /* Smooth scroll */
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px; /* Compensa o navbar fixo */
-        }
-
-        /* Scroll margin para todas as seções com ID - À PROVA DE TUDO! */
-        [id] {
-            scroll-margin-top: 100px;
         }
 
         /* Loading animation */
@@ -2969,6 +2963,62 @@
                     }, 2000);
                 }).catch(function(err) {
                     console.error('Erro ao copiar:', err);
+                });
+            });
+        });
+
+        // ============================
+        // NAVEGAÇÃO COM SCROLL SUAVE E OFFSET
+        // ============================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pega todos os links que apontam para âncoras
+            const allLinks = document.querySelectorAll('a[href^="#"]');
+            
+            allLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    
+                    // Se for só "#", vai para o topo
+                    if (targetId === '#') {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Pega a altura real do navbar
+                        const navbar = document.querySelector('.navbar');
+                        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                        
+                        // Adiciona margem de segurança
+                        const offset = navbarHeight + 20;
+                        
+                        // Calcula a posição exata
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        // Rola suavemente
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Fecha o menu mobile se estiver aberto
+                        const mobileMenu = document.getElementById('navbar-mobile');
+                        if (mobileMenu && mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            const menuToggle = document.getElementById('navbar-toggle');
+                            if (menuToggle) {
+                                menuToggle.classList.remove('active');
+                            }
+                        }
+                    }
                 });
             });
         });
