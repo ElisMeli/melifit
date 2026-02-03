@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview - Cards Tech MeliFIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FFE600;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 230, 0, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            font-size: 1.2em;
+        }
+
+        /* Categorias Premium - FUTURISTIC TECH STYLE */
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .categoria-card {
+            background: 
+                linear-gradient(135deg, rgba(30, 64, 175, 0.15) 0%, rgba(10, 10, 26, 0.8) 100%),
+                radial-gradient(circle at 20% 80%, rgba(255, 230, 0, 0.1), transparent 50%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            color: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Border animado neon */
+        .categoria-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, 
+                #FFE600,
+                #1E40AF,
+                #00D4FF,
+                #FFE600
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: borderRotate 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Brilho interno pulsante */
+        .categoria-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 230, 0, 0.3), transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulseGlow 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        /* Hover effect espetacular */
+        .categoria-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(255, 230, 0, 0.4),
+                0 0 40px rgba(30, 64, 175, 0.3),
+                inset 0 0 30px rgba(255, 230, 0, 0.1);
+            border-color: rgba(255, 230, 0, 0.5);
+        }
+
+        .categoria-card:hover::before {
+            animation-duration: 2s;
+            opacity: 1;
+        }
+
+        /* Troféu 3D animado */
+        .categoria-card .trophy {
+            font-size: 4em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            animation: float3D 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(255, 230, 0, 0.5));
+            transition: all 0.4s ease;
+        }
+
+        @keyframes float3D {
+            0%, 100% { 
+                transform: translateY(0px) rotateY(0deg);
+            }
+            25% {
+                transform: translateY(-15px) rotateY(10deg);
+            }
+            50% { 
+                transform: translateY(-20px) rotateY(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotateY(-10deg);
+            }
+        }
+
+        .categoria-card:hover .trophy {
+            animation: spinTrophy 1s ease-in-out;
+            transform: scale(1.2);
+            filter: drop-shadow(0 15px 30px rgba(255, 230, 0, 0.8));
+        }
+
+        @keyframes spinTrophy {
+            0% { transform: rotateY(0deg) scale(1); }
+            50% { transform: rotateY(180deg) scale(1.3); }
+            100% { transform: rotateY(360deg) scale(1.2); }
+        }
+
+        /* Título com glitch effect */
+        .categoria-card h4 {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2em;
+            margin: 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .categoria-card:hover h4 {
+            animation: glitchText 0.3s ease-in-out 2;
+        }
+
+        @keyframes glitchText {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Prêmio com contador digital */
+        .categoria-card .premio {
+            color: #FFE600;
+            font-size: 1.8em;
+            font-weight: 900;
+            margin: 15px 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 
+                0 0 10px rgba(255, 230, 0, 0.8),
+                0 0 20px rgba(255, 230, 0, 0.5),
+                0 0 30px rgba(255, 230, 0, 0.3);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .categoria-card:hover .premio {
+            animation: digitalFlicker 0.1s infinite;
+        }
+
+        @keyframes digitalFlicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+
+        /* Partículas de energia */
+        .categoria-card .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #FFE600;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            box-shadow: 0 0 10px #FFE600;
+        }
+
+        .categoria-card .particle:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation: particleFloat 3s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .categoria-card .particle:nth-child(2) {
+            top: 40%;
+            right: 15%;
+            animation: particleFloat 3.5s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .categoria-card .particle:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation: particleFloat 4s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .categoria-card .particle:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation: particleFloat 3.2s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(-10px) scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-50px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Scan line effect */
+        .categoria-card .scanline {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(0, 212, 255, 0.8),
+                transparent
+            );
+            top: 0;
+            left: 0;
+            animation: scan 4s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* Texto descritivo */
+        .categoria-card p {
+            position: relative;
+            z-index: 2;
+            font-size: 0.95em;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin: 10px 0;
+        }
+
+        .instructions {
+            background: rgba(255, 230, 0, 0.1);
+            border: 2px solid #FFE600;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .instructions h2 {
+            color: #FFE600;
+            margin-bottom: 15px;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .instructions li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 7 Formas de Ganhar!</h1>
+        <p class="subtitle">Cards futurísticos com efeitos tecnológicos avançados</p>
+
+        <div class="instructions">
+            <h2>🎯 Efeitos Implementados:</h2>
+            <ul>
+                <li><strong>Border Neon Animado</strong> - Borda com gradiente rotativo em loop</li>
+                <li><strong>Troféu 3D Flutuante</strong> - Animação de flutuação com rotação 3D</li>
+                <li><strong>Hover Espetacular</strong> - Ao passar o mouse, troféu gira 360° e cresce</li>
+                <li><strong>Partículas de Energia</strong> - 4 partículas flutuando em cada card</li>
+                <li><strong>Scan Line</strong> - Linha azul varredora estilo terminal</li>
+                <li><strong>Brilho Pulsante</strong> - Luz amarela interna pulsando no fundo</li>
+                <li><strong>Glitch Effect no Hover</strong> - Título vibra ao passar o mouse</li>
+                <li><strong>Digital Flicker</strong> - Porcentagens piscam como display digital</li>
+                <li><strong>Glassmorphism</strong> - Efeito vidro fosco com blur</li>
+            </ul>
+        </div>
+
+        <div class="categorias-grid">
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">🏆</div>
+                <h4>Categoria Principal</h4>
+                <div class="premio">50% do prêmio</div>
+                <p>Complete 24+ dias ativos</p>
+                <p style="font-size: 0.9em; margin-top: 10px;">Dividido entre todos os classificados</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">🥇</div>
+                <h4>Top 1 Pontos</h4>
+                <div class="premio">15% do prêmio</div>
+                <p>Quem acumular mais pontos no total</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">🥈</div>
+                <h4>Top 2 Pontos</h4>
+                <div class="premio">10% do prêmio</div>
+                <p>Segundo colocado em pontos</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">🥉</div>
+                <h4>Top 3 Pontos</h4>
+                <div class="premio">5% do prêmio</div>
+                <p>Terceiro colocado em pontos</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">🚶</div>
+                <h4>Viajante MeliFIT</h4>
+                <div class="premio">10% do prêmio</div>
+                <p>Maior soma de passos acumulados</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">💪</div>
+                <h4>Consistência</h4>
+                <div class="premio">5% do prêmio</div>
+                <p>Mais dias consecutivos sem falta</p>
+            </div>
+
+            <div class="categoria-card">
+                <div class="scanline"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="trophy">📸</div>
+                <h4>Foto da Galera</h4>
+                <div class="premio">5% do prêmio</div>
+                <p>Post mais curtido no GymRats</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
