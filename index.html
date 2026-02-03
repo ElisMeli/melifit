@@ -536,8 +536,9 @@
 
         /* Cards de Atividades */
         .atividades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 15px;
             margin-top: 25px;
         }
@@ -550,6 +551,8 @@
             box-shadow: 0 4px 15px rgba(45, 50, 119, 0.15);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
+            flex: 0 1 180px;
+            min-width: 160px;
         }
 
         .atividade-card:hover {
@@ -572,8 +575,12 @@
 
         @media (max-width: 768px) {
             .atividades-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
                 gap: 12px;
+            }
+            
+            .atividade-card {
+                flex: 0 1 140px;
+                min-width: 130px;
             }
         }
 
