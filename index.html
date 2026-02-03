@@ -1605,6 +1605,104 @@
             z-index: 9999;
             opacity: 0.3;
         }
+
+        /* ============================
+           FAQ ACCORDION
+           ============================ */
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 30px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(45, 50, 119, 0.1);
+            border: 1px solid rgba(255, 230, 0, 0.2);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 230, 0, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 230, 0, 0.15);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 230, 0, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #2D3277;
+            margin: 0;
+            flex: 1;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            color: #FFE600;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-question[aria-expanded="true"] .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-content {
+            padding: 0 25px 20px 25px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .faq-content p {
+            margin-bottom: 10px;
+        }
+
+        .faq-content ul {
+            color: #666;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .faq-question {
+                padding: 18px 20px;
+            }
+            
+            .faq-question h3 {
+                font-size: 1em;
+            }
+            
+            .faq-content {
+                padding: 0 20px 18px 20px;
+                font-size: 0.95em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1623,6 +1721,7 @@
                 <li><a href="#categorias">Categorias</a></li>
                 <li><a href="#regras">Regras</a></li>
                 <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#pagamento">Pagamento</a></li>
             </ul>
             
@@ -1641,6 +1740,7 @@
             <a href="#categorias">Categorias</a>
             <a href="#regras">Regras</a>
             <a href="#galeria">Galeria</a>
+            <a href="#faq">FAQ</a>
             <a href="#pagamento">Pagamento</a>
         </div>
     </nav>
@@ -1661,7 +1761,7 @@
         <div class="hero-content">
             <!-- Badge -->
             <div class="hero-badge">
-                <span>// VAMOS_TREINAR()</span>
+                <span>Operations Center</span>
             </div>
             
             <!-- Título Principal -->
@@ -2336,6 +2436,115 @@
             </p>
         </div>
 
+        <!-- FAQ - Perguntas Frequentes -->
+        <div class="card" id="faq">
+            <h2>❓ Perguntas Frequentes</h2>
+            
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Como funciona o contador de passos?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Qualquer app contador de passos do seu celular (Apple Health, Google Fit, Samsung Health, etc.) pode ser usado. Basta tirar um print mostrando a data, total de passos e horário, e postar no grupo em até 24 horas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Posso combinar diferentes tipos de treino no mesmo dia?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Sim! Você pode fazer musculação e corrida no mesmo dia, por exemplo. O importante é completar pelo menos uma atividade válida por dia para garantir a pontuação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Como funciona o sistema de pontos?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-3">Você ganha pontos de diferentes formas:</p>
+                            <ul style="list-style: disc; margin-left: 20px; line-height: 1.8;">
+                                <li>1 ponto por dia de treino válido</li>
+                                <li>Bônus de consistência (sequências de dias)</li>
+                                <li>Badges digitais por conquistas</li>
+                                <li>Pontos extras em desafios especiais</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Posso participar mesmo viajando?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Sim! Por isso criamos o contador de passos. Se você estiver viajando e não tiver acesso à academia, basta completar 10.000 passos para validar o dia. É a flexibilidade que você precisa!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Quantas faltas posso ter?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Você pode ter até 6 faltas durante os 30 dias de desafio. Isso significa que precisa completar no mínimo 24 dias para se manter na competição. Planeje bem suas atividades!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <h3>Como faço para comprovar meus treinos?</h3>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p class="mb-3">Use o app GymRats para registrar seus treinos:</p>
+                            <ul style="list-style: disc; margin-left: 20px; line-height: 1.8;">
+                                <li>Poste foto/print da atividade</li>
+                                <li>Para passos: print do app nativo do celular</li>
+                                <li>Prazo: até 24h após o treino</li>
+                                <li>Apenas 1 treino válido por dia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -2522,6 +2731,44 @@
                         top: targetPosition,
                         behavior: 'smooth'
                     });
+                }
+            });
+        });
+
+        // ============================
+        // FAQ ACCORDION
+        // ============================
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = question.querySelector('.faq-icon');
+                const isOpen = question.getAttribute('aria-expanded') === 'true';
+                
+                // Fechar todas as outras perguntas
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        const otherFaqItem = otherQuestion.parentElement;
+                        const otherAnswer = otherFaqItem.querySelector('.faq-answer');
+                        const otherIcon = otherQuestion.querySelector('.faq-icon');
+                        
+                        otherQuestion.setAttribute('aria-expanded', 'false');
+                        otherAnswer.style.maxHeight = '0px';
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle da pergunta atual
+                if (isOpen) {
+                    question.setAttribute('aria-expanded', 'false');
+                    answer.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
                 }
             });
         });
