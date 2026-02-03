@@ -94,10 +94,12 @@
             margin: 0;
             padding: 0;
             gap: 30px;
+            align-items: center;
         }
 
         .navbar-menu li {
             margin: 0;
+            position: relative;
         }
 
         .navbar-menu a {
@@ -109,6 +111,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
+            display: block;
         }
 
         .navbar-menu a::before {
@@ -130,6 +133,70 @@
 
         .navbar-menu a:hover::before {
             width: 80%;
+        }
+
+        /* Dropdown */
+        .navbar-dropdown {
+            position: relative;
+        }
+
+        .navbar-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .navbar-dropdown > a::after {
+            content: '▼';
+            font-size: 0.7em;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-dropdown:hover > a::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 230, 0, 0.2);
+            border-radius: 12px;
+            padding: 8px 0;
+            min-width: 220px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 8px;
+        }
+
+        .navbar-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-menu a::before {
+            display: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(255, 230, 0, 0.15);
+            color: #FFE600;
+            padding-left: 25px;
         }
 
         /* Botão Mobile Toggle */
@@ -178,7 +245,7 @@
         }
 
         .navbar-mobile.active {
-            max-height: 400px;
+            max-height: 600px;
         }
 
         .navbar-mobile a {
@@ -2020,11 +2087,35 @@
             
             <!-- Menu Desktop -->
             <ul class="navbar-menu">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#como-participar">Participar</a></li>
-                <li><a href="#categorias">Categorias</a></li>
-                <li><a href="#regras">Regras</a></li>
-                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#hero">Início</a></li>
+                
+                <li class="navbar-dropdown">
+                    <a href="#sobre">Sobre</a>
+                    <div class="dropdown-menu">
+                        <a href="#sobre">🎯 O que é o MeliFIT?</a>
+                        <a href="#modalidades">🏋️ Modalidades</a>
+                        <a href="#info-gerais">📊 Informações Gerais</a>
+                    </div>
+                </li>
+                
+                <li class="navbar-dropdown">
+                    <a href="#galeria">Galerias</a>
+                    <div class="dropdown-menu">
+                        <a href="#galeria">📸 Galeria MeliFIT</a>
+                        <a href="#videos">🎬 Vídeos MeliFIT</a>
+                    </div>
+                </li>
+                
+                <li class="navbar-dropdown">
+                    <a href="#regras">Regras</a>
+                    <div class="dropdown-menu">
+                        <a href="#categorias">🏆 Formas de Se Classificar</a>
+                        <a href="#gymrats">📱 Como Usar o GymRats?</a>
+                        <a href="#comprovar">📸 Como Comprovar?</a>
+                        <a href="#como-participar">📝 Como Participar?</a>
+                    </div>
+                </li>
+                
                 <li><a href="#faq">FAQ</a></li>
             </ul>
             
@@ -2038,17 +2129,22 @@
         
         <!-- Menu Mobile -->
         <div class="navbar-mobile" id="navbar-mobile">
-            <a href="#sobre">Sobre</a>
-            <a href="#como-participar">Participar</a>
-            <a href="#categorias">Categorias</a>
-            <a href="#regras">Regras</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#faq">FAQ</a>
+            <a href="#hero">🏠 Início</a>
+            <a href="#sobre">🎯 O que é o MeliFIT?</a>
+            <a href="#modalidades">🏋️ Modalidades</a>
+            <a href="#info-gerais">📊 Informações Gerais</a>
+            <a href="#galeria">📸 Galeria MeliFIT</a>
+            <a href="#videos">🎬 Vídeos MeliFIT</a>
+            <a href="#categorias">🏆 Formas de Se Classificar</a>
+            <a href="#gymrats">📱 Como Usar o GymRats?</a>
+            <a href="#comprovar">📸 Como Comprovar?</a>
+            <a href="#como-participar">📝 Como Participar?</a>
+            <a href="#faq">❓ FAQ</a>
         </div>
     </nav>
 
     <!-- Hero Section Futurista -->
-    <div class="hero-futurista">
+    <div class="hero-futurista" id="hero">
         <!-- Elementos Geométricos Flutuantes -->
         <div class="floating-circle anim-slow" style="top: 10%; left: 8%; width: 100px; height: 100px; animation-delay: 0s;"></div>
         <div class="floating-circle anim-pulse" style="top: 60%; right: 10%; width: 80px; height: 80px; animation-delay: 2s;"></div>
@@ -2243,7 +2339,7 @@
         
 
         <!-- Galeria de Vídeos -->
-        <div class="card" style="background: linear-gradient(135deg, #1a1d4a 0%, #1E40AF 100%); color: white;">
+        <div class="card" id="videos" style="background: linear-gradient(135deg, #1a1d4a 0%, #1E40AF 100%); color: white;">
             <h2 style="color: #FFE600; border-bottom-color: #FFE600;">🎬 Vídeos MeliFIT</h2>
             <p style="font-size: 1.05em; margin-bottom: 20px; color: white;">
                 Veja a galera treinando! 💪🔥
@@ -2310,7 +2406,7 @@
         
 
         <!-- Modalidades -->
-        <div class="card">
+        <div class="card" id="modalidades">
             <h2>🏋️ Modalidades</h2>
             <div class="modalidades-grid">
                 <div class="modalidade-card">
@@ -2351,7 +2447,7 @@
         </div>
 
         <!-- Informações Gerais (Card separado) -->
-        <div class="card" id="regras">
+        <div class="card" id="info-gerais">
             <h2>📊 Informações Gerais</h2>
             <div class="info-grid">
                 <div class="info-item">
@@ -2414,7 +2510,7 @@
         </div>
 
         <!-- Tutorial GymRats -->
-        <div class="card" style="background: linear-gradient(135deg, #1E40AF 0%, #1a1d4a 100%); color: white;">
+        <div class="card" id="gymrats" style="background: linear-gradient(135deg, #1E40AF 0%, #1a1d4a 100%); color: white;">
             <h2 style="color: #FFE600; border-bottom-color: #FFE600;">📱 Como Usar o GymRats?</h2>
             <p style="font-size: 1.1em; margin-bottom: 20px; color: white;">
                 Assista ao vídeo tutorial e aprenda como registrar seus treinos no app oficial do desafio!
@@ -2463,7 +2559,7 @@
         </div>
 
         <!-- Comprovação -->
-        <div class="card">
+        <div class="card" id="comprovar">
             <h2>📸 Como Comprovar?</h2>
             
             <h3>Para Exercícios Tradicionais:</h3>
