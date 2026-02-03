@@ -1148,6 +1148,164 @@
             </div>
         </div>
 
+        <!-- Galeria de Fotos -->
+        <div class="card" style="background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%); color: white;">
+            <h2 style="color: #FFE600; border-bottom-color: #FFE600;">📸 Galeria MeliFIT</h2>
+            <p style="font-size: 1.05em; margin-bottom: 20px; color: white;">
+                Confira os melhores momentos das edições anteriores! Essa energia também pode ser sua! 🔥
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="images/foto01.jpg" alt="MeliFIT - Participante treinando" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="images/foto02.jpg" alt="MeliFIT - Contador de passos" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="images/foto03.jpg" alt="MeliFIT - Treino em dupla" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="images/foto04.jpg" alt="MeliFIT - Grupo na academia" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="images/foto05.jpg" alt="MeliFIT - Ciclismo" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="images/foto06.jpg" alt="MeliFIT - Selfie pós-treino" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="images/foto07.jpg" alt="MeliFIT - Time completo" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="images/foto08.jpg" alt="MeliFIT - Academia" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <img src="images/foto09.jpg" alt="MeliFIT - Corrida externa" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(9)">
+                    <img src="images/foto10.jpg" alt="MeliFIT - Musculação" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(10)">
+                    <img src="images/foto11.jpg" alt="MeliFIT - Pilates" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <img src="images/foto12.jpg" alt="MeliFIT - Conquistas" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(12)">
+                    <img src="images/foto13.jpg" alt="MeliFIT - Treino em grupo" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(13)">
+                    <img src="images/foto14.jpg" alt="MeliFIT - Atividade física" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(14)">
+                    <img src="images/foto15.jpg" alt="MeliFIT - Motivação" loading="lazy">
+                    <div class="gallery-overlay">👁️ Ver</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 20px; color: #FFE600; font-weight: 600; font-size: 0.95em;">
+                💡 Clique nas fotos para ampliar
+            </p>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); changeLightboxImage(-1)">❮</button>
+            <img id="lightbox-img" src="" alt="Imagem ampliada">
+            <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); changeLightboxImage(1)">❯</button>
+            <div class="lightbox-counter">
+                <span id="lightbox-counter-text"></span>
+            </div>
+        </div>
+        
+
+        <!-- Galeria de Vídeos -->
+        <div class="card" style="background: linear-gradient(135deg, #1a1d4a 0%, #2D3277 100%); color: white;">
+            <h2 style="color: #FFE600; border-bottom-color: #FFE600;">🎬 Vídeos MeliFIT</h2>
+            <p style="font-size: 1.05em; margin-bottom: 20px; color: white;">
+                Veja a galera treinando! Os vídeos reproduzem automaticamente quando você rola a página! 💪🔥
+            </p>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <video 
+                        class="lazy-video" 
+                        muted 
+                        loop 
+                        playsinline 
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
+                        <source src="videos/video1.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="video-icon">🎥 Treino</div>
+                </div>
+                
+                <div class="video-item">
+                    <video 
+                        class="lazy-video" 
+                        muted 
+                        loop 
+                        playsinline 
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
+                        <source src="videos/video2.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="video-icon">💪 Força</div>
+                </div>
+                
+                <div class="video-item energia-video">
+                    <video 
+                        class="lazy-video" 
+                        muted 
+                        loop 
+                        playsinline 
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
+                        <source src="videos/video3.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="video-icon">🔥 Energia</div>
+                </div>
+                
+                <div class="video-item">
+                    <video 
+                        class="lazy-video" 
+                        muted 
+                        loop 
+                        playsinline 
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
+                        <source src="videos/video5.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="video-icon">🏆 Motivação</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 25px; color: #FFE600; font-weight: 600; font-size: 0.95em;">
+                💡 Os vídeos reproduzem automaticamente quando aparecem na tela
+            </p>
+        </div>
+        
+
         <!-- Informações Gerais (Card separado) -->
         <div class="card">
             <h2>📊 Informações Gerais</h2>
@@ -1498,163 +1656,6 @@
             </p>
         </div>
         
-        <!-- Galeria de Vídeos -->
-        <div class="card" style="background: linear-gradient(135deg, #1a1d4a 0%, #2D3277 100%); color: white;">
-            <h2 style="color: #FFE600; border-bottom-color: #FFE600;">🎬 Vídeos MeliFIT</h2>
-            <p style="font-size: 1.05em; margin-bottom: 20px; color: white;">
-                Veja a galera treinando! Os vídeos reproduzem automaticamente quando você rola a página! 💪🔥
-            </p>
-            
-            <div class="video-grid">
-                <div class="video-item">
-                    <video 
-                        class="lazy-video" 
-                        muted 
-                        loop 
-                        playsinline 
-                        preload="metadata"
-                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
-                        <source src="videos/video1.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="video-icon">🎥 Treino</div>
-                </div>
-                
-                <div class="video-item">
-                    <video 
-                        class="lazy-video" 
-                        muted 
-                        loop 
-                        playsinline 
-                        preload="metadata"
-                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
-                        <source src="videos/video2.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="video-icon">💪 Força</div>
-                </div>
-                
-                <div class="video-item energia-video">
-                    <video 
-                        class="lazy-video" 
-                        muted 
-                        loop 
-                        playsinline 
-                        preload="metadata"
-                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
-                        <source src="videos/video3.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="video-icon">🔥 Energia</div>
-                </div>
-                
-                <div class="video-item">
-                    <video 
-                        class="lazy-video" 
-                        muted 
-                        loop 
-                        playsinline 
-                        preload="metadata"
-                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%232D3277' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23FFE600' font-size='48' font-family='Arial'%3E▶%3C/text%3E%3C/svg%3E">
-                        <source src="videos/video5.mp4" type="video/mp4">
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="video-icon">🏆 Motivação</div>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 25px; color: #FFE600; font-weight: 600; font-size: 0.95em;">
-                💡 Os vídeos reproduzem automaticamente quando aparecem na tela
-            </p>
-        </div>
-        
-        <!-- Galeria de Fotos -->
-        <div class="card" style="background: linear-gradient(135deg, #2D3277 0%, #1a1d4a 100%); color: white;">
-            <h2 style="color: #FFE600; border-bottom-color: #FFE600;">📸 Galeria MeliFIT</h2>
-            <p style="font-size: 1.05em; margin-bottom: 20px; color: white;">
-                Confira os melhores momentos das edições anteriores! Essa energia também pode ser sua! 🔥
-            </p>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img src="images/foto01.jpg" alt="MeliFIT - Participante treinando" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img src="images/foto02.jpg" alt="MeliFIT - Contador de passos" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img src="images/foto03.jpg" alt="MeliFIT - Treino em dupla" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img src="images/foto04.jpg" alt="MeliFIT - Grupo na academia" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <img src="images/foto05.jpg" alt="MeliFIT - Ciclismo" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <img src="images/foto06.jpg" alt="MeliFIT - Selfie pós-treino" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <img src="images/foto07.jpg" alt="MeliFIT - Time completo" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <img src="images/foto08.jpg" alt="MeliFIT - Academia" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(8)">
-                    <img src="images/foto09.jpg" alt="MeliFIT - Corrida externa" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(9)">
-                    <img src="images/foto10.jpg" alt="MeliFIT - Musculação" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(10)">
-                    <img src="images/foto11.jpg" alt="MeliFIT - Pilates" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(11)">
-                    <img src="images/foto12.jpg" alt="MeliFIT - Conquistas" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(12)">
-                    <img src="images/foto13.jpg" alt="MeliFIT - Treino em grupo" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(13)">
-                    <img src="images/foto14.jpg" alt="MeliFIT - Atividade física" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-                <div class="gallery-item" onclick="openLightbox(14)">
-                    <img src="images/foto15.jpg" alt="MeliFIT - Motivação" loading="lazy">
-                    <div class="gallery-overlay">👁️ Ver</div>
-                </div>
-            </div>
-
-            <p style="text-align: center; margin-top: 20px; color: #FFE600; font-weight: 600; font-size: 0.95em;">
-                💡 Clique nas fotos para ampliar
-            </p>
-        </div>
-
-        <!-- Lightbox Modal -->
-        <div id="lightbox" onclick="closeLightbox()">
-            <span class="lightbox-close">&times;</span>
-            <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); changeLightboxImage(-1)">❮</button>
-            <img id="lightbox-img" src="" alt="Imagem ampliada">
-            <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); changeLightboxImage(1)">❯</button>
-            <div class="lightbox-counter">
-                <span id="lightbox-counter-text"></span>
-            </div>
-        </div>
-        
-        <!-- Links Importantes -->
         <div class="card">
             <h2>📝 Como Participar?</h2>
             
