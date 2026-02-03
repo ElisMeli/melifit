@@ -536,23 +536,23 @@
 
         /* Cards de Atividades */
         .atividades-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .atividade-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 16px;
-            padding: 20px 15px;
+            padding: 18px 12px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(45, 50, 119, 0.15);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 2px solid transparent;
-            flex: 0 1 180px;
-            min-width: 160px;
         }
 
         .atividade-card:hover {
@@ -562,25 +562,33 @@
         }
 
         .atividade-card .icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 8px;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
         .atividade-card .nome {
             color: #2D3277;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         @media (max-width: 768px) {
             .atividades-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
             
             .atividade-card {
-                flex: 0 1 140px;
-                min-width: 130px;
+                padding: 15px 10px;
+            }
+            
+            .atividade-card .icon {
+                font-size: 2em;
+            }
+            
+            .atividade-card .nome {
+                font-size: 0.95em;
             }
         }
 
